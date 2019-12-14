@@ -27,6 +27,9 @@ import com.codenjoy.dojo.codingbattle2019.client.Board;
 import com.codenjoy.dojo.codingbattle2019.client.ai.AI3Solver;
 import com.codenjoy.dojo.services.RandomDice;
 
+/**
+ * DryRunGame.
+ */
 public class DryRunGame {
 
     public static void main(String[] args) {
