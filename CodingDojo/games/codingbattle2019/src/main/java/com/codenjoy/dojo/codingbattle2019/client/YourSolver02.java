@@ -403,6 +403,11 @@ public class YourSolver02 implements Solver<Board> {
             return Direction.STOP;
         }
 
+        final Direction dirDiagonal = getDirToBulletPackDiagonal();
+        if (dirDiagonal != null) {
+            return dirDiagonal;
+        }
+
         if (me.getY() <= bulletPack.getY() && bulletPack.getY() <= 1 && distX > board.size() / 5 && isDownEnabled()) {
             return Direction.DOWN;
         }
@@ -449,6 +454,22 @@ public class YourSolver02 implements Solver<Board> {
             }
         }
         return false;
+    }
+
+    private Direction getDirToBulletPackDiagonal() {
+        if (isUpLeftEnabled() && me.getY() > bulletPack.getY() && me.getX() > bulletPack.getX()) {
+            return Direction.UP_LEFT;
+        }
+        if (isUpRightEnabled() && me.getY() > bulletPack.getY() && me.getX() < bulletPack.getX()) {
+            return Direction.UP_RIGHT;
+        }
+        if (isDownLeftEnabled() && me.getY() < bulletPack.getY() && me.getX() > bulletPack.getX()) {
+            return Direction.DOWN_LEFT;
+        }
+        if (isDownRightEnabled() && me.getY() < bulletPack.getY() && me.getX() < bulletPack.getX()) {
+            return Direction.DOWN_RIGHT;
+        }
+        return null;
     }
 
     private Direction getDirToBulletPackDLRU() {
