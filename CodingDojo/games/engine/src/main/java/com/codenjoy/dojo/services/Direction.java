@@ -57,6 +57,10 @@ public enum Direction {
         return Arrays.asList(LEFT, UP_LEFT, UP, UP_RIGHT, RIGHT, DOWN_RIGHT, DOWN, DOWN_LEFT);
     }
 
+    public static List<Direction> getMoves() {
+        return Arrays.asList(LEFT, UP_LEFT, UP, UP_RIGHT, RIGHT, DOWN_RIGHT, DOWN, DOWN_LEFT, STOP);
+    }
+
     public static Direction valueOf(int i) {
         for (Direction d : Direction.values()) {
             if (d.value == i) {

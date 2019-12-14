@@ -11,6 +11,7 @@ import com.codenjoy.dojo.services.Point;
 import com.codenjoy.dojo.services.RandomDice;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -29,6 +30,7 @@ public class YourSolver02 implements Solver<Board> {
     private boolean needActBefore = false;
     private final boolean[] isDirEnabled = new boolean[8];
     private String lastComputedAnswer = null;
+    private final HashMap<Direction, Priority> priorities = new HashMap<>();
 
     private static final int BULLETS_COUNT = 10;
 
@@ -103,6 +105,7 @@ public class YourSolver02 implements Solver<Board> {
             if (board.isOutOfField(nextPoint) || board.isBarrierAt(nextPoint)
                     || board.get(Elements.OTHER_HERO).contains(nextPoint)) {
                 isDirEnabled[dir.ordinal()] = false;
+                priorities.get(dir).isImpossible = true;
             }
         }
     }
@@ -129,6 +132,11 @@ public class YourSolver02 implements Solver<Board> {
     }
 
     private void computeEnabledBySaveDir() {
+        for (Direction direction : Direction.getMoves()) {
+            if (!isSaveDir(direction)) {
+                priorities.get(direction).isDeath = true;
+            }
+        }
         if (!isSaveDir(Direction.LEFT)) {
             disableLeft();
         }
@@ -591,6 +599,10 @@ public class YourSolver02 implements Solver<Board> {
         Arrays.fill(isDirEnabled, true);
         this.board = board;
         me = board.getMe();
+        priorities.clear();
+        for (Direction direction : Direction.getMoves()) {
+            priorities.put(direction, new Priority());
+        }
     }
 
     private boolean isChecked() {
@@ -613,13 +625,21 @@ public class YourSolver02 implements Solver<Board> {
         return isDirEnabled[Direction.DOWN.ordinal()];
     }
 
-    private boolean isUpLeftEnabled() { return isDirEnabled[Direction.UP_LEFT.ordinal()];}
+    private boolean isUpLeftEnabled() {
+        return isDirEnabled[Direction.UP_LEFT.ordinal()];
+    }
 
-    private boolean isUpRightEnabled() {return isDirEnabled[Direction.UP_RIGHT.ordinal()];}
+    private boolean isUpRightEnabled() {
+        return isDirEnabled[Direction.UP_RIGHT.ordinal()];
+    }
 
-    private boolean isDownLeftEnabled() { return isDirEnabled[Direction.DOWN_LEFT.ordinal()];}
+    private boolean isDownLeftEnabled() {
+        return isDirEnabled[Direction.DOWN_LEFT.ordinal()];
+    }
 
-    private boolean isDownRightEnabled() { return isDirEnabled[Direction.DOWN_RIGHT.ordinal()]; }
+    private boolean isDownRightEnabled() {
+        return isDirEnabled[Direction.DOWN_RIGHT.ordinal()];
+    }
 
     private void disableLeft() {
         isDirEnabled[Direction.LEFT.ordinal()] = false;
@@ -637,13 +657,21 @@ public class YourSolver02 implements Solver<Board> {
         isDirEnabled[Direction.DOWN.ordinal()] = false;
     }
 
-    private void disableUpLeft() { isDirEnabled[Direction.UP_LEFT.ordinal()] = false; }
+    private void disableUpLeft() {
+        isDirEnabled[Direction.UP_LEFT.ordinal()] = false;
+    }
 
-    private void disableUpRight() { isDirEnabled[Direction.UP_RIGHT.ordinal()] = false; }
+    private void disableUpRight() {
+        isDirEnabled[Direction.UP_RIGHT.ordinal()] = false;
+    }
 
-    private void disableDownLeft() { isDirEnabled[Direction.DOWN_LEFT.ordinal()] = false; }
+    private void disableDownLeft() {
+        isDirEnabled[Direction.DOWN_LEFT.ordinal()] = false;
+    }
 
-    private void disableDownRight() { isDirEnabled[Direction.DOWN_RIGHT.ordinal()] = false; }
+    private void disableDownRight() {
+        isDirEnabled[Direction.DOWN_RIGHT.ordinal()] = false;
+    }
 
     public void setBulletsCount(final int bulletsCount) {
         this.bulletsCount = bulletsCount;
