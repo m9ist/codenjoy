@@ -50,13 +50,13 @@ public class YourSolver implements Solver<Board> {
             return "";
         }
 
-        return Direction.STOP.toString();
+        return Direction.values()[(int) (Math.random() * Direction.values().length)].toString();
     }
 
     public static void main(String[] args) {
         WebSocketRunner.runClient(
                 // paste here board page url from browser after registration
-                "http://codenjoy.com:80/codenjoy-contest/board/player/3edq63tw0bq4w4iem7nb?code=1234567890123456789",
+                "http://192.168.1.150:8080/codenjoy-contest/board/player/demo3@codenjoy.com?code=6904781535232807865",
                 new YourSolver(new RandomDice()),
                 new Board());
     }
