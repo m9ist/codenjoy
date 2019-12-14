@@ -613,6 +613,14 @@ public class YourSolver02 implements Solver<Board> {
         return isDirEnabled[Direction.DOWN.ordinal()];
     }
 
+    private boolean isUpLeftEnabled() { return isDirEnabled[Direction.UP_LEFT.ordinal()];}
+
+    private boolean isUpRightEnabled() {return isDirEnabled[Direction.UP_RIGHT.ordinal()];}
+
+    private boolean isDownLeftEnabled() { return isDirEnabled[Direction.DOWN_LEFT.ordinal()];}
+
+    private boolean isDownRightEnabled() { return isDirEnabled[Direction.DOWN_RIGHT.ordinal()]; }
+
     private void disableLeft() {
         isDirEnabled[Direction.LEFT.ordinal()] = false;
     }
@@ -628,6 +636,14 @@ public class YourSolver02 implements Solver<Board> {
     private void disableDown() {
         isDirEnabled[Direction.DOWN.ordinal()] = false;
     }
+
+    private void disableUpLeft() { isDirEnabled[Direction.UP_LEFT.ordinal()] = false; }
+
+    private void disableUpRight() { isDirEnabled[Direction.UP_RIGHT.ordinal()] = false; }
+
+    private void disableDownLeft() { isDirEnabled[Direction.DOWN_LEFT.ordinal()] = false; }
+
+    private void disableDownRight() { isDirEnabled[Direction.DOWN_RIGHT.ordinal()] = false; }
 
     public static void main(final String[] args) {
         WebSocketRunner.runClient(
