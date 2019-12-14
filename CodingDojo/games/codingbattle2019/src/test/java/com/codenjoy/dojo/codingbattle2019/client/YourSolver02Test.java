@@ -1044,11 +1044,11 @@ public class YourSolver02Test {
     @Test
     public void testSafeDirections() {
         setupAi(""
-                + "     "
-                + "  ♣  "
-                + "     "
-                + "  A  "
-                + "     "
+                , "     "
+                , "  ♣  "
+                , "     "
+                , "  A  "
+                , "     "
         );
         for (Direction move : Direction.getMoves()) {
             Assert.assertEquals(
@@ -1062,10 +1062,10 @@ public class YourSolver02Test {
     @Test
     public void testSafeDirections2() {
         setupAi(""
-                + "       "
-                + "  ♣  A "
-                + "       "
-                + "       "
+                , "       "
+                , "  ♣  A "
+                , "       "
+                , "       "
         );
         for (Direction move : Direction.getMoves()) {
             Assert.assertFalse(
@@ -1078,10 +1078,10 @@ public class YourSolver02Test {
     @Test
     public void testSafeDirections3() {
         setupAi(""
-                + "       "
-                + "  A ♣  "
-                + "       "
-                + "       "
+                , "       "
+                , "  A ♣  "
+                , "       "
+                , "       "
         );
         for (Direction move : Direction.getMoves()) {
             Assert.assertEquals(
@@ -1095,13 +1095,13 @@ public class YourSolver02Test {
     @Test
     public void testSafeDirections4() {
         setupAi(""
-                + "       "
-                + "    ♣  "
-                + "       "
-                + "       "
-                + "  A    "
-                + "       "
-                + "       "
+                , "       "
+                , "    ♣  "
+                , "       "
+                , "       "
+                , "  A    "
+                , "       "
+                , "       "
         );
         for (Direction move : Direction.getMoves()) {
             Assert.assertEquals(
@@ -1112,8 +1112,37 @@ public class YourSolver02Test {
         }
     }
 
-    void setupAi(final String boardString) {
+    @Test
+    public void testSafeDirections5() {
+        setupAi(""
+                , "   0   "
+                , "       "
+                , "  A    "
+                , "       "
+        );
+        ai.isSaveDir(Direction.UP_RIGHT);
+        for (Direction move : Direction.getMoves()) {
+            Assert.assertEquals(
+                    "fail for " + move,
+                    EnumSet.of(Direction.UP_RIGHT).contains(move),
+                    ai.priorities.get(move).isDeath()
+            );
+        }
+    }
+
+    void setupAi(final String... lines) {
         final Board board = new Board();
+        int maxLength = lines.length;
+        for (int i = 1; i < lines.length; i++) {
+            maxLength = Math.max(maxLength, lines[i].length());
+        }
+        String boardString = "";
+        for (int i = 0; i < maxLength; i++) {
+            String toAdd = i < lines.length ? lines[i] : "";
+            while (toAdd.length() < maxLength) toAdd += " ";
+            boardString += toAdd;
+
+        }
         board.forString(boardString);
         ai.board = board;
         ai.me = board.getMe();

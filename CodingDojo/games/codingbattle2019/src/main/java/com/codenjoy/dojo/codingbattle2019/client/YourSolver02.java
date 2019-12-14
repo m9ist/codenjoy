@@ -521,7 +521,7 @@ public class YourSolver02 implements Solver<Board> {
     }
 
     @SuppressWarnings("BooleanMethodIsAlwaysInverted")
-    private boolean isSaveDir(final Direction dirWithError) {
+    protected boolean isSaveDir(final Direction dirWithError) {
         final Point nextPoint = dirWithError.change(me);
         if (!isPointValid(nextPoint)) {
             return false;
