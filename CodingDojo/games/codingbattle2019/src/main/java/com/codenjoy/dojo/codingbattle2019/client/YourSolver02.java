@@ -115,7 +115,7 @@ public class YourSolver02 implements Solver<Board> {
     protected void computeFlags() {
         computeEnabledBySaveDir();
         computeEscapeBombDeltaX0and1();
-        //computeEscapeBombDiagDeltaX0and1();
+        computeEscapeBombDiagDeltaX0and1();
         computeEscapeStone();
         computeEscapeBombDeltaX2();
         computePatterns();
