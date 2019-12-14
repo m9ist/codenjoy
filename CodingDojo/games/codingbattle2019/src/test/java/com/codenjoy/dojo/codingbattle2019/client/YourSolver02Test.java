@@ -43,7 +43,6 @@ public class YourSolver02Test {
     }
 
     @Test
-    @Disabled
     public void testShould02() {
         checkMove("" +
                 "☼   ☼" +
@@ -55,7 +54,6 @@ public class YourSolver02Test {
     }
 
     @Test
-    @Disabled
     public void testShould03() {
         checkMove("" +
                 "☼   ☼" +
@@ -67,7 +65,6 @@ public class YourSolver02Test {
     }
 
     @Test
-    @Disabled
     public void testShould04() {
         checkMove("" +
                 "☼   ☼" +
@@ -79,7 +76,6 @@ public class YourSolver02Test {
     }
 
     @Test
-    @Disabled
     public void testShould05() {
         checkMove("" +
                 "☼    ☼" +
@@ -92,7 +88,6 @@ public class YourSolver02Test {
     }
 
     @Test
-    @Disabled
     public void testShould06() {
         checkMove("" +
                 "☼   7☼" +
@@ -105,7 +100,6 @@ public class YourSolver02Test {
     }
 
     @Test
-    @Disabled
     public void testShould07() {
         checkMove("" +
                 "☼   7☼" +
@@ -118,7 +112,6 @@ public class YourSolver02Test {
     }
 
     @Test
-    @Disabled
     public void testShould08() {
         checkMove("" +
                 "☼    7☼" +
@@ -132,7 +125,6 @@ public class YourSolver02Test {
     }
 
     @Test
-    @Disabled
     public void testShould09() {
         checkMove("" +
                 "☼  7   ☼" +
@@ -147,7 +139,6 @@ public class YourSolver02Test {
     }
 
     @Test
-    @Disabled
     public void testShould10() {
         checkMove("" +
                 "☼  7   ☼" +
@@ -162,7 +153,6 @@ public class YourSolver02Test {
     }
 
     @Test
-    @Disabled
     public void testShould11() {
         checkMove("" +
                 "☼  7   ☼" +
@@ -177,7 +167,6 @@ public class YourSolver02Test {
     }
 
     @Test
-    @Disabled
     public void testShould12() {
         checkMove("" +
                 "☼ 7     ☼" +
@@ -193,7 +182,6 @@ public class YourSolver02Test {
     }
 
     @Test
-    @Disabled
     public void testShould13() {
         checkMove("" +
                 "☼ 7     ☼" +
@@ -209,7 +197,6 @@ public class YourSolver02Test {
     }
 
     @Test
-    @Disabled
     public void testShould14() {
         checkMove("" +
                 "☼ 7     ☼" +
@@ -225,7 +212,6 @@ public class YourSolver02Test {
     }
 
     @Test
-    @Disabled
     public void testShould15() {
         checkMove("" +
                 "☼7 7    ☼" +
@@ -241,7 +227,6 @@ public class YourSolver02Test {
     }
 
     @Test
-    @Disabled
     public void testShould16() {
         checkMove("" +
                 "☼        7☼" +
@@ -259,7 +244,6 @@ public class YourSolver02Test {
     }
 
     @Test
-    @Disabled
     public void testShould17() {
         checkMove("" +
                 "☼         ☼" +
@@ -277,7 +261,6 @@ public class YourSolver02Test {
     }
 
     @Test
-    @Disabled
     public void testShould18() {
         checkMove("" +
                 "☼         ☼" +
@@ -295,7 +278,6 @@ public class YourSolver02Test {
     }
 
     @Test
-    @Disabled
     public void testShould19() {
         checkMove("" +
                 "☼   A ☼" +
@@ -309,7 +291,6 @@ public class YourSolver02Test {
     }
 
     @Test
-    @Disabled
     public void testShould20() {
         checkMove("" +
                 "☼     ☼" +
@@ -323,7 +304,6 @@ public class YourSolver02Test {
     }
 
     @Test
-    @Disabled
     public void testShould21() {
         checkMove("" +
                 "☼ 7    ☼" +
@@ -338,7 +318,6 @@ public class YourSolver02Test {
     }
 
     @Test
-    @Disabled
     public void testShould22() {
         checkMove("" +
                 "☼      ☼" +
@@ -353,7 +332,6 @@ public class YourSolver02Test {
     }
 
     @Test
-    @Disabled
     public void testShould23() {
         checkMove("" +
                 "☼      ☼" +
@@ -368,7 +346,6 @@ public class YourSolver02Test {
     }
 
     @Test
-    @Disabled
     public void testShould24() {
         checkMove("" +
                 "☼      ☼" +
@@ -383,7 +360,6 @@ public class YourSolver02Test {
     }
 
     @Test
-    @Disabled
     public void testShould25() {
         checkMove("" +
                 "☼      ☼" +
@@ -398,7 +374,6 @@ public class YourSolver02Test {
     }
 
     @Test
-    @Disabled
     public void testShould26() {
         checkMove("" +
                 "☼  ♣ 7☼" +
@@ -412,7 +387,6 @@ public class YourSolver02Test {
     }
 
     @Test
-    @Disabled
     public void testShould27() {
         checkMove("" +
                 "☼  ♣ ☼" +
@@ -425,7 +399,6 @@ public class YourSolver02Test {
     }
 
     @Test
-    @Disabled
     public void testShould28() {
         checkMove("" +
                 "☼ ♣  ☼" +
@@ -438,7 +411,6 @@ public class YourSolver02Test {
     }
 
     @Test
-    @Disabled
     public void testShould29() {
         checkMove("" +
                 "☼  ♣ ☼" +
@@ -451,7 +423,6 @@ public class YourSolver02Test {
     }
 
     @Test
-    @Disabled
     public void testShould30() {
         checkMove("" +
                 "☼ ♣  ☼" +
@@ -464,7 +435,6 @@ public class YourSolver02Test {
     }
 
     @Test
-    @Disabled
     public void testShould31() {
         checkMove("" +
                 "☼       ☼" +
@@ -480,7 +450,6 @@ public class YourSolver02Test {
     }
 
     @Test
-    @Disabled
     public void testShould32() {
         checkMove("" +
                 "☼      ☼" +
@@ -495,7 +464,6 @@ public class YourSolver02Test {
     }
 
     @Test
-    @Disabled
     public void testShould33() {
         checkMove("" +
                 "☼        ☼" +
@@ -512,7 +480,6 @@ public class YourSolver02Test {
     }
 
     @Test
-    @Disabled
     public void testShould34() {
         checkMove("" +
                 "☼                ☼" +
@@ -537,7 +504,6 @@ public class YourSolver02Test {
     }
 
     @Test
-    @Disabled
     public void testShould35() {
         checkMove("" +
                 "☼                ☼" +
@@ -562,7 +528,6 @@ public class YourSolver02Test {
     }
 
     @Test
-    @Disabled
     public void testShouldEscape01() {
         checkMove("" +
                 "☼               ☼" +
@@ -586,7 +551,6 @@ public class YourSolver02Test {
     }
 
     @Test
-    @Disabled
     public void testShouldEscape02() {
         checkMove("" +
                 "☼               ☼" +
@@ -610,7 +574,6 @@ public class YourSolver02Test {
     }
 
     @Test
-    @Disabled
     public void testShouldEscape03() { // Никто пока не проходит этот тест.
         checkMove("" +
                 "☼               ☼" +
@@ -634,7 +597,6 @@ public class YourSolver02Test {
     }
 
     @Test
-    @Disabled
     public void testShouldUpLeft() {
         checkMove("" +
                 "☼       ☼" +
@@ -650,7 +612,6 @@ public class YourSolver02Test {
     }
 
     @Test
-    @Disabled
     public void testShouldUpRight() {
         checkMove("" +
                 "☼    ☼" +
@@ -663,7 +624,6 @@ public class YourSolver02Test {
     }
 
     @Test
-    @Disabled
     public void testShouldMoves01() {
         checkMoves(new String[]{"" +
                 "☼         ☼" +
@@ -693,7 +653,6 @@ public class YourSolver02Test {
     }
 
     @Test
-    @Disabled
     public void testShouldMoves02() {
         checkMoves(new String[]{"" +
                 "☼ 7     ☼" +
@@ -719,7 +678,6 @@ public class YourSolver02Test {
     }
 
     @Test
-    @Disabled
     public void testShouldMoves03() {
         checkMoves(new String[]{"" +
                 "☼☻7     ☼" +
@@ -745,7 +703,6 @@ public class YourSolver02Test {
     }
 
     @Test
-    @Disabled
     public void testShouldMovesAndScores01() {
         checkMovesAndScores(new String[]{"" +
                         "☼     ♣ ☼" +
@@ -784,7 +741,6 @@ public class YourSolver02Test {
     }
 
     @Test
-    @Disabled
     public void testShouldMovesAndScores02() {
         checkMovesAndScores(new String[]{"" +
                         "☼      ♣☼" +
@@ -823,7 +779,6 @@ public class YourSolver02Test {
     }
 
     @Test
-    @Disabled
     public void testShouldMovesAndScores03() {
         checkMovesAndScores(new String[]{"" +
                         "☼       ☼" +
@@ -862,7 +817,6 @@ public class YourSolver02Test {
     }
 
     @Test
-    @Disabled
     public void testShouldMovesAndScores04() {
         checkMovesAndScores(new String[]{"" +
                         "☼    0♣ ☼" +
@@ -911,7 +865,6 @@ public class YourSolver02Test {
     }
 
     @Test
-    @Disabled
     public void testShouldMovesAndScores05() {
         checkMovesAndScores(new String[]{"" +
                         "☼    ☼" +
@@ -940,7 +893,6 @@ public class YourSolver02Test {
     }
 
     @Test
-    @Disabled
     public void testShouldMovesAndScores06() {
         checkMovesAndScores(new String[]{"" +
                         "☼    ☼" +
@@ -969,7 +921,6 @@ public class YourSolver02Test {
     }
 
     @Test
-    @Disabled
     public void testShouldMovesAndScores07() {
         checkMovesAndScores(new String[]{"" +
                         "☼    ☼" +
@@ -1000,7 +951,6 @@ public class YourSolver02Test {
     }
 
     @Test
-    @Disabled
     public void testShouldMovesAndScores08() {
         checkMovesAndScores(new String[]{"" +
                         "☼    ☼" +

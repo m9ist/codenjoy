@@ -142,6 +142,18 @@ public class YourSolver02 implements Solver<Board> {
         if (!isSaveDir(Direction.DOWN)) {
             disableDown();
         }
+        if (!isSaveDir(Direction.UP_LEFT)) {
+            disableUpLeft();
+        }
+        if (!isSaveDir(Direction.UP_RIGHT)) {
+            disableUpRight();
+        }
+        if (!isSaveDir(Direction.DOWN_LEFT)) {
+            disableDownLeft();
+        }
+        if (!isSaveDir(Direction.DOWN_RIGHT)) {
+            disableDownRight();
+        }
     }
 
     private void computeEscapeBombDeltaX0and1() {
