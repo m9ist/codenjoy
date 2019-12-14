@@ -27,6 +27,10 @@ import com.codenjoy.dojo.services.settings.Parameter;
 import com.codenjoy.dojo.services.settings.Settings;
 
 public class Scores implements PlayerScores {
+    public static final int DESTROY_BOMB_SCORE = 30;
+    public static final int DESTROY_STONE_SCORE = 10;
+    public static final int DESTROY_ENEMY_SCORE = 250;
+    public static final int LOOSE_PENALTY = 100;
 
     private final Parameter<Integer> destroyBombScore;
     private final Parameter<Integer> destroyStoneScore;

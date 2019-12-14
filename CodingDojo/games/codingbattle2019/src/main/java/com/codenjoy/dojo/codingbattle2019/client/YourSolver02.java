@@ -645,6 +645,10 @@ public class YourSolver02 implements Solver<Board> {
 
     private void disableDownRight() { isDirEnabled[Direction.DOWN_RIGHT.ordinal()] = false; }
 
+    public void setBulletsCount(final int bulletsCount) {
+        this.bulletsCount = bulletsCount;
+    }
+
     public static void main(final String[] args) {
         WebSocketRunner.runClient(
                 // paste here board page url from browser after registration
