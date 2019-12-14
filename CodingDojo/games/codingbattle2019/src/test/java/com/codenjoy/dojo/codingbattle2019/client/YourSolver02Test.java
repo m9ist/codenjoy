@@ -662,6 +662,18 @@ public class YourSolver02Test {
     }
 
     @Test
+    public void testShouldByBullet() {
+        checkMove("" +
+                "☼    ☼" +
+                "☼    ☼" +
+                "☼ A 7☼" +
+                "☼  * ☼" +
+                "☼    ☼" +
+                "☼    ☼" +
+                "", Direction.DOWN.ACT(true));
+    }
+
+    @Test
     public void testShouldUpRight() {
         checkMove("" +
                 "☼    ☼" +
