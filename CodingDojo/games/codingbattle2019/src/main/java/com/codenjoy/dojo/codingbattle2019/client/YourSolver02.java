@@ -528,16 +528,21 @@ public class YourSolver02 implements Solver<Board> {
         return null;
     }
 
-    private boolean bombedIfMoveThisPoint(final Point nextPoint) {
-        final Point nextPointUp = Direction.UP.change(nextPoint);
-        if (board.isBombAt(nextPointUp)) return true;
-        final List<Point> bombsWaves = getBombsWaves();
-        for (final Point bombWave : bombsWaves) {
-            final Point nextBombWave = Direction.UP.change(bombWave);
-            if (nextPoint.equals(nextBombWave)) {
+    protected boolean bombedIfMoveThisPoint(final Point nextPoint) {
+        for (Point bomb : bombs) {
+            Point nextBombPosition = Direction.DOWN.change(bomb);
+            if (Math.abs(nextBombPosition.getX() - nextPoint.getX()) <= SpaceCommon.BOMB_RADIUS
+                    && Math.abs(nextBombPosition.getY() - nextPoint.getY()) <= SpaceCommon.BOMB_RADIUS) {
                 return true;
             }
         }
+        List<Point> explosions = board.get(Elements.EXPLOSION);
+        for (Point explosion : explosions) {
+            if (explosion.equals(nextPoint)) {
+                return true;
+            }
+        }
+
         return false;
     }
 

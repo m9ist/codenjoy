@@ -1053,7 +1053,7 @@ public class YourSolver02Test {
         for (Direction move : Direction.getMoves()) {
             Assert.assertEquals(
                     "fail for " + move,
-                    EnumSet.of(Direction.UP, Direction.UP_LEFT, Direction.UP_RIGHT).contains(move),
+                    EnumSet.of(Direction.UP, Direction.UP_LEFT, Direction.UP_RIGHT, Direction.LEFT, Direction.RIGHT, Direction.STOP).contains(move),
                     ai.priorities.get(move).isDeath()
             );
         }
