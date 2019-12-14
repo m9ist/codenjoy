@@ -670,7 +670,7 @@ public class YourSolver02Test {
                 "☼  * ☼" +
                 "☼    ☼" +
                 "☼    ☼" +
-                "", Direction.DOWN.ACT(true));
+                "", Direction.UP_RIGHT.toString());
     }
 
     @Test
