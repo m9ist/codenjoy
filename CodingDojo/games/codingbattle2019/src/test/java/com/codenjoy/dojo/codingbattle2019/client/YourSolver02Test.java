@@ -11,6 +11,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.EnumSet;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -989,9 +990,46 @@ public class YourSolver02Test {
                 + "  A  "
                 + "     "
         );
-        Assert.assertTrue(ai.priorities.get(Direction.UP).isDeath());
-        Assert.assertTrue(ai.priorities.get(Direction.UP_LEFT).isDeath());
-        Assert.assertTrue(ai.priorities.get(Direction.UP_RIGHT).isDeath());
+        for (Direction move : Direction.getMoves()) {
+            Assert.assertEquals(
+                    "fail for " + move,
+                    EnumSet.of(Direction.UP, Direction.UP_LEFT, Direction.UP_RIGHT).contains(move),
+                    ai.priorities.get(move).isDeath()
+            );
+        }
+    }
+
+    @Test
+    public void testSafeDirections2() {
+        setupAi(""
+                + "       "
+                + "  ♣  A "
+                + "       "
+                + "       "
+        );
+        for (Direction move : Direction.getMoves()) {
+            Assert.assertFalse(
+                    "fail for " + move,
+                    ai.priorities.get(move).isDeath()
+            );
+        }
+    }
+
+    @Test
+    public void testSafeDirections3() {
+        setupAi(""
+                + "       "
+                + "  A ♣  "
+                + "       "
+                + "       "
+        );
+        for (Direction move : Direction.getMoves()) {
+            Assert.assertEquals(
+                    "fail for " + move,
+                    EnumSet.of(Direction.RIGHT, Direction.DOWN_RIGHT).contains(move),
+                    ai.priorities.get(move).isDeath()
+            );
+        }
     }
 
     void setupAi(final String boardString) {
