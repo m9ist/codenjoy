@@ -101,7 +101,7 @@ public class YourSolver02 implements Solver<Board> {
         for (int i = 0; i < isDirEnabled.length; i++) {
             final Direction dir = Direction.values()[i];
             final Point nextPoint = dir.change(me);
-            if (board.isOutOfField(nextPoint) || board.isBarrierAt(nextPoint)
+            if (!isPointValid(nextPoint)
                     || board.get(Elements.OTHER_HERO).contains(nextPoint)) {
                 isDirEnabled[dir.ordinal()] = false;
                 priorities.get(dir).isImpossible = true;
@@ -493,13 +493,8 @@ public class YourSolver02 implements Solver<Board> {
     }
 
     private boolean isPointValid(final Point nextPoint) {
-        if (nextPoint.isOutOf(board.size())) {
-            return false;
-        }
-        if (board.isBarrierAt(nextPoint)) {
-            return false;
-        }
-        return true;
+        return !board.isOutOfField(nextPoint)
+                && !board.isBarrierAt(nextPoint);
     }
 
     private void findItems() {
