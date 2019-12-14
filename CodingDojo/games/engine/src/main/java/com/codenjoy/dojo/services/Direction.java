@@ -34,12 +34,12 @@ import static com.codenjoy.dojo.services.PointImpl.pt;
 public enum Direction {
     LEFT(0, -1, 0),
     RIGHT(1, 1, 0),
-    UP(2, 0, -1),
-    DOWN(3, 0, 1),
-    UP_LEFT(4, -1, -1),
-    UP_RIGHT(5, 1, -1),
-    DOWN_LEFT(6, -1, 1),
-    DOWN_RIGHT(7, 1, 1),
+    UP(2, 0, 1),
+    DOWN(3, 0, -1),
+    UP_LEFT(4, -1, 1),
+    UP_RIGHT(5, 1, 1),
+    DOWN_LEFT(6, -1, -1),
+    DOWN_RIGHT(7, 1, -1),
     ACT(8, 0, 0),
     STOP(9, 0, 0);
 

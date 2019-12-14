@@ -100,24 +100,13 @@ public class YourSolver02 implements Solver<Board> {
     private void checkBorders() {
         for (int i = 0; i < isDirEnabled.length; i++) {
             final Direction dir = Direction.values()[i];
-            final Direction changeDir = getChangeDir(dir);
-            final Point nextPoint = changeDir.change(me);
+            final Point nextPoint = dir.change(me);
             if (board.isOutOfField(nextPoint) || board.isBarrierAt(nextPoint)
                     || board.get(Elements.OTHER_HERO).contains(nextPoint)) {
                 isDirEnabled[dir.ordinal()] = false;
                 priorities.get(dir).isImpossible = true;
             }
         }
-    }
-
-    private Direction getChangeDir(final Direction dirWithError) {
-        final Direction changeDir;
-        if (dirWithError == Direction.UP || dirWithError == Direction.DOWN) {
-            changeDir = dirWithError.inverted();
-        } else {
-            changeDir = dirWithError;
-        }
-        return changeDir;
     }
 
     private void computeFlags() {
@@ -462,8 +451,7 @@ public class YourSolver02 implements Solver<Board> {
 
     @SuppressWarnings("BooleanMethodIsAlwaysInverted")
     private boolean isSaveDir(final Direction dirWithError) {
-        final Direction changeDir = getChangeDir(dirWithError);
-        final Point nextPoint = changeDir.change(me);
+        final Point nextPoint = dirWithError.change(me);
         if (!isPointValid(nextPoint)) {
             return false;
         }
