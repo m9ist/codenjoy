@@ -289,7 +289,7 @@ public class AI3Solver implements Solver<Board> {
         if (((board.isStoneAt(me.getX(), me.getY() - 1)) ||
                 (board.isStoneAt(me.getX(), me.getY() - 2))) &&
                 (bestDirection.equals(Direction.UP))){
-            return Direction.LEFT;
+            return Direction.LEFT; //test-comment
         }
         return bestDirection;
     }
