@@ -11,9 +11,10 @@ public class Priority {
     boolean otherHero = false;
     boolean impossible = false;
     boolean isDeath = false;
+    boolean isBombed = false;
 
     public boolean isDeath() {
-        return isDeath;
+        return isDeath || isBombed;
     }
 
     public boolean isImpossible() {

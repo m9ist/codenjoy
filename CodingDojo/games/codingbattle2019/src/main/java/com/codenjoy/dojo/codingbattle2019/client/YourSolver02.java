@@ -20,8 +20,8 @@ import static com.codenjoy.dojo.services.PointImpl.pt;
 public class YourSolver02 implements Solver<Board> {
 
     private final Dice dice;
-    private Board board;
-    private Point me;
+    protected Board board;
+    protected Point me;
     private int bulletsCount = 0;
     private Point bulletPack;
     private List<Point> bombs;
@@ -30,7 +30,7 @@ public class YourSolver02 implements Solver<Board> {
     private boolean needActBefore = false;
     private final boolean[] isDirEnabled = new boolean[8];
     private String lastComputedAnswer = null;
-    private final HashMap<Direction, Priority> priorities = new HashMap<>();
+    protected final HashMap<Direction, Priority> priorities = new HashMap<>();
 
     private static final int BULLETS_COUNT = 10;
 
@@ -162,8 +162,14 @@ public class YourSolver02 implements Solver<Board> {
     private void computeEnabledBySaveDir() {
         for (Direction direction : Direction.getMoves()) {
             Priority priority = priorities.get(direction);
-            if (!priority.isImpossible() && !isSaveDir(direction)) {
-                priority.isDeath = true;
+            if (!priority.isImpossible()) {
+                if (bombedIfMoveThisPoint(direction.change(me))) {
+                    priority.isBombed = true;
+                    continue;
+                }
+                if (!isSaveDir(direction)) {
+                    priority.isDeath = true;
+                }
             }
         }
         if (!isSaveDir(Direction.LEFT)) {
@@ -501,29 +507,36 @@ public class YourSolver02 implements Solver<Board> {
         return null;
     }
 
+    private boolean bombedIfMoveThisPoint(final Point nextPoint) {
+        final Point nextPointUp = Direction.UP.change(nextPoint);
+        if (board.isBombAt(nextPointUp)) return true;
+        final List<Point> bombsWaves = getBombsWaves();
+        for (final Point bombWave : bombsWaves) {
+            final Point nextBombWave = Direction.UP.change(bombWave);
+            if (nextPoint.equals(nextBombWave)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     @SuppressWarnings("BooleanMethodIsAlwaysInverted")
     private boolean isSaveDir(final Direction dirWithError) {
         final Point nextPoint = dirWithError.change(me);
         if (!isPointValid(nextPoint)) {
             return false;
         }
-        final Point nextPointDown = Direction.DOWN.change(nextPoint);
         final Point nextPointUp = Direction.UP.change(nextPoint);
+        if (bombedIfMoveThisPoint(nextPoint)) {
+            return false;
+        }
 
-        if (board.isBombAt(nextPointDown)
-                || board.isStoneAt(nextPointDown)
+        if (board.isStoneAt(nextPointUp)
                 || board.isBulletAt(nextPointUp)) {
             return false;
         }
         if (board.isAt(nextPoint, Elements.OTHER_HERO)) {
             return false;
-        }
-        final List<Point> bombsWaves = getBombsWaves();
-        for (final Point bombWave : bombsWaves) {
-            final Point nextBombWave = Direction.UP.change(bombWave);
-            if (nextPoint.equals(nextBombWave)) {
-                return false;
-            }
         }
         return true;
     }

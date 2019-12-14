@@ -6,15 +6,16 @@ import com.codenjoy.dojo.codingbattle2019.services.Scores;
 import com.codenjoy.dojo.services.Dice;
 import com.codenjoy.dojo.services.Direction;
 import com.codenjoy.dojo.services.Point;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import org.junit.jupiter.api.Disabled;
 
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class YourSolver02Test {
     private static final long SEED = 5;
@@ -977,6 +978,28 @@ public class YourSolver02Test {
                 new String[]{Direction.LEFT.ACT(true), Direction.LEFT.ACT(true),
                         Direction.UP.ACT(true)},
                 new int[]{0, 0, Scores.DESTROY_ENEMY_SCORE});
+    }
+
+    @Test
+    public void testSafeDirections() {
+        setupAi(""
+                + "     "
+                + "  ♣  "
+                + "     "
+                + "  A  "
+                + "     "
+        );
+        Assert.assertTrue(ai.priorities.get(Direction.UP).isDeath());
+        Assert.assertTrue(ai.priorities.get(Direction.UP_LEFT).isDeath());
+        Assert.assertTrue(ai.priorities.get(Direction.UP_RIGHT).isDeath());
+    }
+
+    void setupAi(final String boardString) {
+        final Board board = new Board();
+        board.forString(boardString);
+        ai.board = board;
+        ai.me = board.getMe();
+        ai.globalInit();
     }
 
     private void checkMove(final String board, final String expected) {
