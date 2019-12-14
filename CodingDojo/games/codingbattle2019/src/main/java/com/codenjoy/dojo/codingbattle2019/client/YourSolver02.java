@@ -620,6 +620,9 @@ public class YourSolver02 implements Solver<Board> {
         if (bulletPacks.stream().anyMatch(e1 -> e1.getY() > 2)) {
             bulletPacks.removeIf(e -> e.getY() <= 2);
         }
+        if (bulletPacks.stream().anyMatch(e1 -> e1.getY() > 1)) {
+            bulletPacks.removeIf(e -> e.getY() <= 1);
+        }
         bulletPack = Util.getNearestBySquare(bulletPacks, me);
         reload();
     }
