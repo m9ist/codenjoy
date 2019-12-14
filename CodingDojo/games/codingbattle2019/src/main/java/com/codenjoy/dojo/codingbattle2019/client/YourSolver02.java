@@ -27,7 +27,7 @@ public class YourSolver02 implements Solver<Board> {
     private List<Point> stones;
     private List<Point> otherHeroes;
     private boolean needActBefore = false;
-    private final boolean[] isDirEnabled = new boolean[4];
+    private final boolean[] isDirEnabled = new boolean[8];
     private String lastComputedAnswer = null;
 
     private static final int BULLETS_COUNT = 10;
@@ -82,13 +82,13 @@ public class YourSolver02 implements Solver<Board> {
         if (dirToBulletPack != null) {
             if (bulletsCount > 0) {
                 if (needActBefore) {
-                    // bulletsCount--; Для сравнения этого места с YourSolver04
-                    return Direction.ACT + ", " + dirToBulletPack.toString();
+                    bulletsCount--;
+                    return dirToBulletPack.ACT(true);
                 } else {
                     return dirToBulletPack.toString();
                 }
             } else {
-                return Direction.ACT + ", " + dirToBulletPack.toString();
+                return dirToBulletPack.ACT(true);
             }
         }
 
@@ -96,7 +96,7 @@ public class YourSolver02 implements Solver<Board> {
     }
 
     private void checkBorders() {
-        for (int i = 0; i < 4; i++) {
+        for (int i = 0; i < isDirEnabled.length; i++) {
             final Direction dir = Direction.values()[i];
             final Direction changeDir = getChangeDir(dir);
             final Point nextPoint = changeDir.change(me);
