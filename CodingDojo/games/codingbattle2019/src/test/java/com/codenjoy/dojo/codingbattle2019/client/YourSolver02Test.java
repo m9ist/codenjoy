@@ -39,7 +39,7 @@ public class YourSolver02Test {
                 "☼   ☼" +
                 "☼ A ☼" +
                 "☼   ☼" +
-                "", Direction.UP);
+                "", Direction.UP.ACT(true));
     }
 
     @Test
@@ -47,11 +47,11 @@ public class YourSolver02Test {
     public void testShould02() {
         checkMove("" +
                 "☼   ☼" +
+                "☼   ☼" +
                 "☼A 7☼" +
                 "☼   ☼" +
                 "☼   ☼" +
-                "☼   ☼" +
-                "", Direction.RIGHT);
+                "", Direction.RIGHT.ACT(true));
     }
 
     @Test
@@ -59,11 +59,11 @@ public class YourSolver02Test {
     public void testShould03() {
         checkMove("" +
                 "☼   ☼" +
+                "☼   ☼" +
                 "☼7 A☼" +
                 "☼   ☼" +
                 "☼   ☼" +
-                "☼   ☼" +
-                "", Direction.LEFT);
+                "", Direction.LEFT.ACT(true));
     }
 
     @Test
@@ -75,7 +75,7 @@ public class YourSolver02Test {
                 "☼   ☼" +
                 "☼  7☼" +
                 "☼   ☼" +
-                "", Direction.DOWN);
+                "", Direction.DOWN.ACT(true));
     }
 
     @Test
@@ -88,7 +88,7 @@ public class YourSolver02Test {
                 "☼ A  ☼" +
                 "☼    ☼" +
                 "☼    ☼" +
-                "", Direction.RIGHT);
+                "", Direction.RIGHT.ACT(true));
     }
 
     @Test
@@ -101,7 +101,7 @@ public class YourSolver02Test {
                 "☼ A☼ ☼" +
                 "☼    ☼" +
                 "☼   7☼" +
-                "", Direction.DOWN);
+                "", Direction.DOWN.ACT(true));
     }
 
     @Test
@@ -114,7 +114,7 @@ public class YourSolver02Test {
                 "☼ A☼ ☼" +
                 "☼    ☼" +
                 "☼   7☼" +
-                "", Direction.DOWN);
+                "", Direction.DOWN.ACT(true));
     }
 
     @Test
@@ -128,7 +128,7 @@ public class YourSolver02Test {
                 "☼     ☼" +
                 "☼     ☼" +
                 "☼   7 ☼" +
-                "", Direction.DOWN);
+                "", Direction.DOWN.ACT(true));
     }
 
     @Test
@@ -143,7 +143,7 @@ public class YourSolver02Test {
                 "☼      ☼" +
                 "☼☼☼ ☼  ☼" +
                 "☼7     ☼" +
-                "", Direction.DOWN);
+                "", Direction.DOWN.ACT(true));
     }
 
     @Test
@@ -158,7 +158,7 @@ public class YourSolver02Test {
                 "☼      ☼" +
                 "☼☼☼☼☼  ☼" +
                 "☼7     ☼" +
-                "", Direction.LEFT);
+                "", Direction.LEFT.ACT(true));
     }
 
     @Test
@@ -173,7 +173,7 @@ public class YourSolver02Test {
                 "☼      ☼" +
                 "☼☼☼☼☼  ☼" +
                 "☼7     ☼" +
-                "", Direction.RIGHT);
+                "", Direction.RIGHT.ACT(true));
     }
 
     @Test
@@ -189,7 +189,7 @@ public class YourSolver02Test {
                 "☼      7☼" +
                 "☼☼☼☼    ☼" +
                 "☼  7    ☼" +
-                "", Direction.UP);
+                "", Direction.UP.ACT(true));
     }
 
     @Test
@@ -205,7 +205,7 @@ public class YourSolver02Test {
                 "☼       ☼" +
                 "☼☼☼☼☼   ☼" +
                 "☼  7    ☼" +
-                "", Direction.LEFT);
+                "", Direction.LEFT.ACT(true));
     }
 
     @Test
@@ -221,7 +221,7 @@ public class YourSolver02Test {
                 "☼       ☼" +
                 "☼☼☼☼☼☼  ☼" +
                 "☼ 7     ☼" +
-                "", Direction.RIGHT);
+                "", Direction.RIGHT.ACT(true));
     }
 
     @Test
@@ -237,7 +237,7 @@ public class YourSolver02Test {
                 "☼7      ☼" +
                 "☼       ☼" +
                 "☼       ☼" +
-                "", Direction.RIGHT);
+                "", Direction.RIGHT.ACT(true));
     }
 
     @Test
@@ -255,7 +255,7 @@ public class YourSolver02Test {
                 "☼         ☼" +
                 "☼         ☼" +
                 "☼         ☼" +
-                "", Direction.DOWN);
+                "", Direction.DOWN.ACT(true));
     }
 
     @Test
@@ -273,7 +273,7 @@ public class YourSolver02Test {
                 "☼         ☼" +
                 "☼         ☼" +
                 "☼         ☼" +
-                "", Direction.RIGHT);
+                "", Direction.RIGHT.ACT(true));
     }
 
     @Test
@@ -291,7 +291,7 @@ public class YourSolver02Test {
                 "☼         ☼" +
                 "☼         ☼" +
                 "☼         ☼" +
-                "", Direction.RIGHT);
+                "", Direction.RIGHT.ACT(true));
     }
 
     @Test
@@ -305,7 +305,7 @@ public class YourSolver02Test {
                 "☼     ☼" +
                 "☼     ☼" +
                 "☼     ☼" +
-                "", Direction.DOWN);
+                "", Direction.DOWN.ACT(true));
     }
 
     @Test
@@ -319,7 +319,7 @@ public class YourSolver02Test {
                 "☼     ☼" +
                 "☼     ☼" +
                 "☼     ☼" +
-                "", Direction.DOWN);
+                "", Direction.DOWN.ACT(true));
     }
 
     @Test
@@ -334,7 +334,7 @@ public class YourSolver02Test {
                 "☼      ☼" +
                 "☼      ☼" +
                 "☼      ☼" +
-                "", Direction.DOWN);
+                "", Direction.DOWN.ACT(true));
     }
 
     @Test
@@ -349,7 +349,7 @@ public class YourSolver02Test {
                 "☼      ☼" +
                 "☼      ☼" +
                 "☼      ☼" +
-                "", Direction.DOWN);
+                "", Direction.DOWN.ACT(true));
     }
 
     @Test
@@ -364,7 +364,7 @@ public class YourSolver02Test {
                 "☼      ☼" +
                 "☼      ☼" +
                 "☼      ☼" +
-                "", Direction.LEFT);
+                "", Direction.LEFT.ACT(true));
     }
 
     @Test
@@ -379,7 +379,7 @@ public class YourSolver02Test {
                 "☼      ☼" +
                 "☼      ☼" +
                 "☼      ☼" +
-                "", Direction.RIGHT);
+                "", Direction.RIGHT.ACT(true));
     }
 
     @Test
@@ -394,7 +394,7 @@ public class YourSolver02Test {
                 "☼  ☼   ☼" +
                 "☼      ☼" +
                 "☼      ☼" +
-                "", Direction.LEFT);
+                "", Direction.LEFT.ACT(true));
     }
 
     @Test
@@ -408,7 +408,7 @@ public class YourSolver02Test {
                 "☼ ☼   ☼" +
                 "☼     ☼" +
                 "☼     ☼" +
-                "", Direction.LEFT);
+                "", Direction.LEFT.ACT(true));
     }
 
     @Test
@@ -421,7 +421,7 @@ public class YourSolver02Test {
                 "☼   7☼" +
                 "☼   A☼" +
                 "☼   ☼☼" +
-                "", Direction.LEFT);
+                "", Direction.LEFT.ACT(true));
     }
 
     @Test
@@ -434,7 +434,7 @@ public class YourSolver02Test {
                 "☼7   ☼" +
                 "☼A   ☼" +
                 "☼    ☼" +
-                "", Direction.RIGHT);
+                "", Direction.RIGHT.ACT(true));
     }
 
     @Test
@@ -689,7 +689,7 @@ public class YourSolver02Test {
                 "☼ ♣   A   ☼" +
                 "☼         ☼" +
                 "☼         ☼" +
-                ""}, new String[]{Direction.LEFT.toString(), Direction.LEFT.toString()});
+                ""}, new String[]{Direction.LEFT.ACT(true), Direction.LEFT.ACT(true)});
     }
 
     @Test
@@ -715,7 +715,7 @@ public class YourSolver02Test {
                 "☼       ☼" +
                 "☼       ☼" +
                 "☼       ☼" +
-                ""}, new String[]{Direction.DOWN.toString(), Direction.DOWN.toString()});
+                ""}, new String[]{Direction.DOWN.ACT(true), Direction.DOWN.ACT(true)});
     }
 
     @Test
@@ -741,7 +741,7 @@ public class YourSolver02Test {
                 "☼       ☼" +
                 "☼       ☼" +
                 "☼       ☼" +
-                ""}, new String[]{Direction.DOWN.toString(), Direction.UP.toString()});
+                ""}, new String[]{Direction.DOWN.ACT(true), Direction.UP.ACT(true)});
     }
 
     @Test
@@ -1029,10 +1029,11 @@ public class YourSolver02Test {
                 new int[]{0, 0, Scores.DESTROY_ENEMY_SCORE});
     }
 
-    private void checkMove(final String board, final Direction expected) {
+    private void checkMove(final String board, final String expected) {
         checkBoard(board);
+        ai.setBulletsCount(SpaceCommon.BULLETS_COUNT);
         final String actual = ai.get(board(board));
-        assertEquals(expected.toString(), actual);
+        assertEquals(expected, actual);
     }
 
     private void checkMove(final String board, final String expected, final int bulletsCount) {
