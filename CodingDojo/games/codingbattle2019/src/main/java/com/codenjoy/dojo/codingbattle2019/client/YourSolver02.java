@@ -118,6 +118,7 @@ public class YourSolver02 implements Solver<Board> {
         computeEscapeBombDiagDeltaX0and1();
         computeEscapeStone();
         computeEscapeBombDeltaX2();
+        computeEscapeBombDiagDeltaX2();
         computePatterns();
         processOtherHeroes();
         processActForNearBulletPack();
@@ -225,12 +226,33 @@ public class YourSolver02 implements Solver<Board> {
             if (Math.abs(me.getX() - bomb.getX()) == 2) {
                 if (me.getY() >= bomb.getY() && me.getY() - 4 < bomb.getY()) {
                     if (me.getX() > bomb.getX()) {
-                        if (!isRightEnabled() && !isUpEnabled()) {
+                        if (!isUpRightEnabled() && !isUpEnabled() && !isUpLeftEnabled()) {
                             disableLeft();
                         }
                     } else {
-                        if (!isLeftEnabled() && !isUpEnabled()) {
+                        if (!isUpLeftEnabled() && !isUpEnabled() && !isUpRightEnabled()) {
                             disableRight();
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private void computeEscapeBombDiagDeltaX2() {
+        for (final Point bomb : bombs) {
+            if (me.getY() < bomb.getY() - 1) {
+                continue;
+            }
+            if (Math.abs(me.getX() - bomb.getX()) == 2) {
+                if (me.getY() >= bomb.getY() && me.getY() - 4 < bomb.getY()) {
+                    if (me.getX() > bomb.getX()) {
+                        if (!isRightEnabled() && !isUpEnabled() && !isUpRightEnabled()) {
+                            disableUpLeft();
+                        }
+                    } else {
+                        if (!isLeftEnabled() && !isUpEnabled() && !isUpLeftEnabled()) {
+                            disableUpRight();
                         }
                     }
                 }
