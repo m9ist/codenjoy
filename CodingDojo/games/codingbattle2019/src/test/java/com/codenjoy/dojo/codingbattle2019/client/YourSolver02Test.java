@@ -86,7 +86,7 @@ public class YourSolver02Test {
                 "☼ A  ☼" +
                 "☼    ☼" +
                 "☼    ☼" +
-                "", Direction.RIGHT.ACT(true));
+                "", Direction.UP_RIGHT.ACT(true));
     }
 
     @Test
@@ -98,7 +98,7 @@ public class YourSolver02Test {
                 "☼ A☼ ☼" +
                 "☼    ☼" +
                 "☼   7☼" +
-                "", Direction.DOWN.ACT(true));
+                "", Direction.DOWN_RIGHT.ACT(true));
     }
 
     @Test
@@ -110,7 +110,7 @@ public class YourSolver02Test {
                 "☼ A☼ ☼" +
                 "☼    ☼" +
                 "☼   7☼" +
-                "", Direction.DOWN.ACT(true));
+                "", Direction.DOWN_RIGHT.ACT(true));
     }
 
     @Test
@@ -123,7 +123,7 @@ public class YourSolver02Test {
                 "☼     ☼" +
                 "☼     ☼" +
                 "☼   7 ☼" +
-                "", Direction.DOWN.ACT(true));
+                "", Direction.DOWN_RIGHT.ACT(true));
     }
 
     @Test
