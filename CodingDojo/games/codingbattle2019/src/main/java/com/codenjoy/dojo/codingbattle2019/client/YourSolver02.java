@@ -117,10 +117,46 @@ public class YourSolver02 implements Solver<Board> {
         computeEscapeBombDeltaX0and1();
         computeEscapeStone();
         computeEscapeBombDeltaX2();
+        computeRightEscapeBomb();
         computePatterns();
         processOtherHeroes();
         processActForNearBulletPack();
         processBorders();
+    }
+
+    private void computeRightEscapeBomb() {
+        for (final Point bomb : bombs) {
+            if (me.getY() < bomb.getY() - 2) {
+                continue;
+            }
+            if (me.getX() == bomb.getX()) {
+                if (me.getY() - 2 >= bomb.getY()) {
+                    if (bulletsCount > 0) {
+                        needActBefore = true;
+                    }
+                } else if (me.getY() > bomb.getY()) {
+                    disableUp();
+                    disableUpLeft();
+                    disableUpRight();
+                    disableLeft();
+                    disableRight();
+                    disableDown();
+                }
+            } else if (Math.abs(me.getX() - bomb.getX()) == 2) {
+                if (me.getY() >= bomb.getY() && me.getY() - 4 < bomb.getY()) {
+                    disableUp();
+                    if (me.getX() > bomb.getX()) {
+                        disableLeft();
+                        disableUpLeft();
+                        disableDownLeft();
+                    } else {
+                        disableRight();
+                        disableDownRight();
+                        disableUpRight();
+                    }
+                }
+            }
+        }
     }
 
     private void computeEnabledBySaveDir() {
