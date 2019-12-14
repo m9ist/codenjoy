@@ -48,7 +48,7 @@ public class Util {
     }
 
     public static int distance(final Point point1, final Point point2) {
-        return Math.abs(point1.getX() - point2.getX()) + Math.abs(point1.getY() - point2.getY());
+        return Math.max(Math.abs(point1.getX() - point2.getX()), Math.abs(point1.getY() - point2.getY()));
     }
 
     static int getMinDistanceBySquare(final List<? extends Point> points, final Point from) {
