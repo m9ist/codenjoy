@@ -602,6 +602,9 @@ public class YourSolver02 implements Solver<Board> {
         if (bulletPacks.isEmpty()) {
             return;
         }
+        if (bulletPacks.stream().anyMatch(e1 -> e1.getY() > 2)) {
+            bulletPacks.removeIf(e -> e.getY() <= 2);
+        }
         bulletPack = Util.getNearestBySquare(bulletPacks, me);
         reload();
     }
