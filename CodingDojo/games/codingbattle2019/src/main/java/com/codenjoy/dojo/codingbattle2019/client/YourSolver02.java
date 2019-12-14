@@ -527,12 +527,13 @@ public class YourSolver02 implements Solver<Board> {
             return false;
         }
         final Point nextPointUp = Direction.UP.change(nextPoint);
+        final Point nextPointDown = Direction.DOWN.change(nextPoint);
         if (bombedIfMoveThisPoint(nextPoint)) {
             return false;
         }
 
         if (board.isStoneAt(nextPointUp)
-                || board.isBulletAt(nextPointUp)) {
+                || board.isBulletAt(nextPointDown)) {
             return false;
         }
         if (board.isAt(nextPoint, Elements.OTHER_HERO)) {
