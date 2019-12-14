@@ -11,7 +11,7 @@ public class SpaceCommon {
 
     public static final int BOMB_RADIUS = 1;
 
-    public static final boolean IS_BATTLE_MODE = false;
+    public static final boolean IS_BATTLE_MODE = true;
 
     public static final int TIME_TO_SOLVE_MILLIS = 800;
 }
