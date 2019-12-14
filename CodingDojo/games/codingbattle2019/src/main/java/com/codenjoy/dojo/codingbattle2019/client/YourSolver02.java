@@ -32,7 +32,7 @@ public class YourSolver02 implements Solver<Board> {
 
     private static final int BULLETS_COUNT = 10;
 
-    private YourSolver02(final Dice dice) {
+    public YourSolver02(final Dice dice) {
         this.dice = dice;
     }
 

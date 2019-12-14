@@ -26,9 +26,9 @@ package com.codenjoy.dojo.codingbattle2019;
 import com.codenjoy.dojo.client.ClientBoard;
 import com.codenjoy.dojo.client.LocalGameRunner;
 import com.codenjoy.dojo.client.Solver;
+import com.codenjoy.dojo.codingbattle2019.client.YourSolver02;
 import com.codenjoy.dojo.services.Dice;
 import com.codenjoy.dojo.codingbattle2019.client.Board;
-import com.codenjoy.dojo.codingbattle2019.client.YourSolver;
 import com.codenjoy.dojo.codingbattle2019.client.ai.AISolver;
 import com.codenjoy.dojo.codingbattle2019.services.GameRunner;
 import org.junit.Ignore;
@@ -98,7 +98,7 @@ public class SmokeTest {
         // when
         LocalGameRunner.run(gameType,
                 new LinkedList<Solver>(){{
-                    add(new YourSolver(dice));
+                    add(new YourSolver02(dice));
                     add(new AISolver(dice));
                 }},
                 new LinkedList<ClientBoard>(){{
