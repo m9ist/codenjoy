@@ -52,15 +52,14 @@ public class YourSolver02 implements Solver<Board> {
                     return getRandom();
                 }
             }
+            this.board = board;
+            me = board.getMe();
+            if (me == null) return getRandom();
             if (Util.isGameOver(board, me)) {
                 clear();
                 return "";
             }
-            initMove(board);
-            if (!isChecked()) {
-                return getRandom();
-            }
-            findItems();
+            globalInit();
             lastComputedAnswer = getMove01();
             return lastComputedAnswer;
         } catch (final Throwable throwable) {
@@ -75,11 +74,14 @@ public class YourSolver02 implements Solver<Board> {
         }
     }
 
-    private String getMove01() {
+    protected void globalInit() {
+        initMove();
+        findItems();
         checkBorders();
-
         computeFlags();
+    }
 
+    private String getMove01() {
         final Direction dirToBulletPack = getDirToBulletPack();
         if (dirToBulletPack != null) {
             if (bulletsCount > 0) {
@@ -97,19 +99,20 @@ public class YourSolver02 implements Solver<Board> {
         return getRandomSave();
     }
 
-    private void checkBorders() {
+    protected void checkBorders() {
         for (int i = 0; i < isDirEnabled.length; i++) {
             final Direction dir = Direction.values()[i];
             final Point nextPoint = dir.change(me);
             if (!isPointValid(nextPoint)
-                    || board.get(Elements.OTHER_HERO).contains(nextPoint)) {
+                    || otherHeroes.contains(nextPoint)) {
                 isDirEnabled[dir.ordinal()] = false;
-                priorities.get(dir).isImpossible = true;
+                priorities.get(dir).impossible = !isPointValid(nextPoint);
+                priorities.get(dir).otherHero = otherHeroes.contains(nextPoint);
             }
         }
     }
 
-    private void computeFlags() {
+    protected void computeFlags() {
         computeEnabledBySaveDir();
         computeEscapeBombDeltaX0and1();
         computeEscapeStone();
@@ -122,8 +125,9 @@ public class YourSolver02 implements Solver<Board> {
 
     private void computeEnabledBySaveDir() {
         for (Direction direction : Direction.getMoves()) {
-            if (!isSaveDir(direction)) {
-                priorities.get(direction).isDeath = true;
+            Priority priority = priorities.get(direction);
+            if (!priority.isImpossible() && !isSaveDir(direction)) {
+                priority.isDeath = true;
             }
         }
         if (!isSaveDir(Direction.LEFT)) {
@@ -552,7 +556,7 @@ public class YourSolver02 implements Solver<Board> {
         return dir.toString();
     }
 
-//    //- Блок методов BackupSolver --------------------------------------------------------------------------------------
+    //    //- Блок методов BackupSolver --------------------------------------------------------------------------------------
 //
 //    @Override
     public void clear() {
@@ -577,19 +581,13 @@ public class YourSolver02 implements Solver<Board> {
 //
 //    //------------------------------------------------------------------------------------------------------------------
 
-    private void initMove(final Board board) {
+    private void initMove() {
         needActBefore = false;
         Arrays.fill(isDirEnabled, true);
-        this.board = board;
-        me = board.getMe();
         priorities.clear();
         for (Direction direction : Direction.getMoves()) {
             priorities.put(direction, new Priority());
         }
-    }
-
-    private boolean isChecked() {
-        return me != null;
     }
 
     private boolean isLeftEnabled() {

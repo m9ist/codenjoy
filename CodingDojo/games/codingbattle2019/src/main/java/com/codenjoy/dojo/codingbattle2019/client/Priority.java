@@ -8,7 +8,8 @@ public class Priority {
         return "default";
     }
 
-    boolean isImpossible = false;
+    boolean otherHero = false;
+    boolean impossible = false;
     boolean isDeath = false;
 
     public boolean isDeath() {
@@ -16,6 +17,6 @@ public class Priority {
     }
 
     public boolean isImpossible() {
-        return isImpossible;
+        return impossible || otherHero;
     }
 }
