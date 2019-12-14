@@ -614,6 +614,54 @@ public class YourSolver02Test {
     }
 
     @Test
+    public void testShouldDiagonal01() {
+        checkMove("" +
+                "☼    ☼" +
+                "☼ 7  ☼" +
+                "☼  A ☼" +
+                "☼    ☼" +
+                "☼    ☼" +
+                "☼    ☼" +
+                "", Direction.UP_LEFT.ACT(true));
+    }
+
+    @Test
+    public void testShouldDiagonal02() {
+        checkMove("" +
+                "☼    ☼" +
+                "☼   7☼" +
+                "☼  A ☼" +
+                "☼    ☼" +
+                "☼    ☼" +
+                "☼    ☼" +
+                "", Direction.UP_RIGHT.ACT(true));
+    }
+
+    @Test
+    public void testShouldDiagonal03() {
+        checkMove("" +
+                "☼    ☼" +
+                "☼    ☼" +
+                "☼  A ☼" +
+                "☼ 7  ☼" +
+                "☼    ☼" +
+                "☼    ☼" +
+                "", Direction.DOWN_LEFT.ACT(true));
+    }
+
+    @Test
+    public void testShouldDiagonal04() {
+        checkMove("" +
+                "☼    ☼" +
+                "☼    ☼" +
+                "☼  A ☼" +
+                "☼   7☼" +
+                "☼    ☼" +
+                "☼    ☼" +
+                "", Direction.DOWN_RIGHT.ACT(true));
+    }
+
+    @Test
     public void testShouldUpRight() {
         checkMove("" +
                 "☼    ☼" +
