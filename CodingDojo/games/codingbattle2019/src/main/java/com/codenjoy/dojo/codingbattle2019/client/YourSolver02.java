@@ -32,7 +32,7 @@ public class YourSolver02 implements Solver<Board> {
     private String lastComputedAnswer = null;
     protected final HashMap<Direction, Priority> priorities = new HashMap<>();
 
-    private static final int BULLETS_COUNT = 10;
+    protected static final int BULLETS_COUNT = 10;
 
     public YourSolver02(final Dice dice) {
         this.dice = dice;
@@ -81,7 +81,7 @@ public class YourSolver02 implements Solver<Board> {
         computeFlags();
     }
 
-    private String getMove01() {
+    protected String getMove01() {
         final Direction dirToBulletPack = getDirToBulletPack();
         if (dirToBulletPack != null) {
             if (bulletsCount > 0) {

@@ -1092,6 +1092,26 @@ public class YourSolver02Test {
         }
     }
 
+    @Test
+    public void testSafeDirections4() {
+        setupAi(""
+                + "       "
+                + "    ♣  "
+                + "       "
+                + "       "
+                + "  A    "
+                + "       "
+                + "       "
+        );
+        for (Direction move : Direction.getMoves()) {
+            Assert.assertEquals(
+                    "fail for " + move,
+                    EnumSet.of(Direction.UP_RIGHT).contains(move),
+                    ai.priorities.get(move).isDeath()
+            );
+        }
+    }
+
     void setupAi(final String boardString) {
         final Board board = new Board();
         board.forString(boardString);
